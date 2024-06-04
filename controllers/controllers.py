@@ -17,6 +17,9 @@ def inserir_crianca(nome, idade, responsavel_id):
 def consultar_responsaveis():
     return session.query(Responsavel).all()
 
+def consultar_responsavel(responsavel_id: int):
+    return session.query(Responsavel).filter_by(id=responsavel_id).first()
+
 def atualizar_responsavel(responsavel_id, novo_nome, novo_endereco, novo_telefone):
     responsavel = session.query(Responsavel).filter_by(id=responsavel_id).first()
     if not responsavel:
